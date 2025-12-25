@@ -1,0 +1,12 @@
+.idea/*
+.venv/*
+*.json
+*.txt
+*.png
+*.zip
+bac/bacap-frames/images/*
+bac/spreadsheet_data/packs/*
+fiddle/*
+its-celestial/*
+
+!words/*.txt
