@@ -503,32 +503,6 @@ time.sleep(1000)
 # for l in res:
 #     print(l)
 
-# CREATE FILL IN THE BLANKS
-# advs = [adv for adv in advs if len(adv) > 10]
-# candidates = []
-# while len(candidates) < 100:
-#     candidates.append(advs.pop(random.randrange(0, len(advs))))
-# for i, adv in enumerate(candidates):
-#     # 30 to 80
-#     NUM_REVEALS = math.floor(len([c for c in adv if c in "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"])*(80-i/2)/100)
-#     # print(adv, NUM_REVEALS)
-#     count = 0
-#     filtered_adv = [("_" if c in "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-#                     else c) for c in adv]
-#     while count < NUM_REVEALS:
-#         index = random.randrange(0, len(filtered_adv))
-#         if(filtered_adv[index] == "_"):
-#             count += 1
-#             filtered_adv[index] = adv[index]
-#
-#     filtered_adv.replace("…", "...")
-#     filtered_adv.replace("<", "")
-#
-#     print(f"{"".join(filtered_adv)}" + "\t" + f"                                                                                                                                                                                            {adv}")
-
-print(advs)
-# print(len(advs))
-# print("DONE")
 #
 # # Exit code 1
 # print(advs[1000000])
