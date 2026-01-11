@@ -3,17 +3,28 @@ import keyboard
 import time
 import pyperclip
 
-input = open("in.txt", "r+").read().splitlines()
+input = open("in.txt", "r+", encoding="UTF-8").read().splitlines()
 
-# class Category:
-#     name:
+def paste(msg):
+    pyautogui.hotkey('ctrl', 'a')
+    pyperclip.copy(msg)
+    pyautogui.hotkey('ctrl', 'v')
 
 time.sleep(4)
 
 for l in input:
-    if("WEEK ") in l:
-        continue
     l = l.replace("-- ", "")
+
+    # Line 1
+    if("BACAP Connections") in l:
+        paste(l)
+        pyautogui.press('tab')
+        paste("BlackBird_6")
+        pyautogui.press('tab')
+        pyautogui.press('tab')
+        pyautogui.press('tab')
+        continue
+
     category, members = l.split(":")
     category = category.strip()
 
@@ -21,13 +32,10 @@ for l in input:
     members = [m.strip() for m in members]
 
     print(category, members)
-    pyautogui.hotkey('ctrl', 'a')
-    pyperclip.copy(category)
-    pyautogui.hotkey('ctrl', 'v')
+    paste(category)
     pyautogui.press('tab')
-    pyautogui.hotkey('ctrl', 'a')
-    pyperclip.copy(",".join(members))
-    pyautogui.hotkey('ctrl', 'v')
+
+    paste(",".join(members))
     pyautogui.press('tab')
     pyautogui.press('tab')
 
