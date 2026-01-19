@@ -4,8 +4,8 @@
 *.txt
 *.png
 *.zip
-bac/bacap-frames/images/*
-bac/spreadsheet_data/packs/*
+bac-database/bacap-frames/images/*
+bac-database/packs/*
 fiddle/*
 its-celestial/*
 
