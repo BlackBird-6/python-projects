@@ -1,8 +1,8 @@
 import sqlite3
 import random
-import math
+import numpy as np
 
-conn = sqlite3.connect('../bac/spreadsheet_data/bacap.db')
+conn = sqlite3.connect('../bac-database/bacap.db')
 cursor = conn.cursor()
 database_data = cursor.execute('''SELECT name from advancements ''')
 # database_data = cursor.execute('''SELECT name from advancements WHERE version like '%1.20%' OR version like '%1.19%' OR version like '%1.18%' OR version like '%1.17%' OR version like '%1.16%' ''')
@@ -13,11 +13,18 @@ print(advs)
 # CREATE FILL IN THE BLANKS
 advs = [adv for adv in advs if len(adv) > 10]
 candidates = []
-while len(candidates) < 100:
+
+NUM_ANSWERS = 200
+START_REVEAL_PERCENT = 80
+END_REVEAL_PERCENT = 30
+
+while len(candidates) < NUM_ANSWERS:
     candidates.append(advs.pop(random.randrange(0, len(advs))))
 for i, adv in enumerate(candidates):
     # 30 to 80
-    NUM_REVEALS = math.floor(len([c for c in adv if c in "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"])*(80-i/2)/100)
+    num_chars = len([c for c in adv if c in "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"])
+    NUM_REVEALS = np.floor(num_chars *
+           (START_REVEAL_PERCENT - (START_REVEAL_PERCENT-END_REVEAL_PERCENT) * i/NUM_ANSWERS ) /100)
     # print(adv, NUM_REVEALS)
     count = 0
     filtered_adv = [("_" if c in "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
