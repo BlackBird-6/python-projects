@@ -77,11 +77,10 @@ while True:
                 l = l.replace(query, "[[[" + query.upper() + "]]]")
             res.append((search, l))
 
-    for l in res:
+    for l in res: # Print, repeat ad infinitum
         print(l)
 
-print(",".join(res)) # Print, repeat ad infinitum
-
+# Code to create advs.txt
 # advs = open("./Text/advs.txt", "r+").read().splitlines()
 # res = []
 # for a in advs:
@@ -91,13 +90,7 @@ print(",".join(res)) # Print, repeat ad infinitum
 #
 # time.sleep(100)
 
-
-# for i, l in enumerate(f):
-#     res.append(re.findall('\((.+)\)', l)[-1])
-#
-# for l in res:
-#     print(l)
-
+# This was the first iteration before I bit the bullet and made cursed regex
 #     for l in f:
 #         stdl = l # standardized
 #         stdl = stdl.replace("\t", "_______")

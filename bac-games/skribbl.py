@@ -7,6 +7,8 @@ conn = sqlite3.connect('../bac-database/bacap.db')
 cursor = conn.cursor()
 database_data = cursor.execute('''SELECT name from advancements ''')
 
+
+
 # database_data = cursor.execute('''SELECT name from advancements WHERE name like 'a%' ''')
 # database_data = cursor.execute('''SELECT name from advancements WHERE version like '%1.20%' OR version like '%1.19%' OR version like '%1.18%' OR version like '%1.17%' OR version like '%1.16%' ''')
 
@@ -25,7 +27,6 @@ advs = [adv[0] for adv in d]
 
 nadvs = ["".join([c.upper() for c in adv if c.lower() in "abcdefghijklmnopqrstuvwxyz0123456789"]) for adv in advs]
 nsadvs = ["".join([c.upper() for c in adv if c.lower() in "abcdefghijklmnopqrstuvwxyz0123456789 "]) for adv in advs]
-
 
 candidates = []
 

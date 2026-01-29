@@ -4,7 +4,7 @@ import time
 import pyperclip
 
 def connect():
-    input = open("../bac-games/Text/connections_in.txt", "r+", encoding="UTF-8").read().splitlines()
+    input = open("connections_in.txt", "r+", encoding="UTF-8").read().splitlines()
 
     def paste(msg):
         pyautogui.hotkey('ctrl', 'a')
